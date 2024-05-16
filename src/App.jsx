@@ -12,6 +12,7 @@ import BlogDetails from './pages/BlogDetails'
 import UpdateBlog from './pages/UpdateBlog'
 import { useDispatch } from 'react-redux'
 import { setUser } from './app/slices/authSlice'
+import Footer from './components/Footer'
 const App = () => {
   const dispatch = useDispatch()
   const getUserFromServer = async() =>{
@@ -43,6 +44,7 @@ const App = () => {
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
     </Routes>
+    <Footer/>
     </BrowserRouter>
   )
 }

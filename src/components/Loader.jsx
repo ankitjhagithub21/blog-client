@@ -2,7 +2,7 @@ import React from 'react'
 
 const Loader = () => {
     return (
-        <div className="my-5 py-5 text-center">
+        <div className="loader">
             <div
                 className="spinner-border text-primary "
                 style={{ width: "3rem", height: "3rem" }}

@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { setUser } from '../app/slices/authSlice'
 import toast from "react-hot-toast"
-import { FaHome } from 'react-icons/fa'
+import { FaGithub, FaHome } from 'react-icons/fa'
 const Navbar = () => {
     const user = useSelector((state)=>state.auth.user)
     const navigate = useNavigate()
@@ -20,13 +20,13 @@ const Navbar = () => {
         }
     }
     return (
-        <nav className='container p-2 d-flex align-items-center justify-content-between'>
+        <nav className='container p-2 d-flex  align-items-center justify-content-between'>
             <div>
                 <Link to={"/"} className='btn btn-primary'>
                     <FaHome size={20}/>
                 </Link>
             </div>
-            <div className='d-flex gap-2'>
+            <div className='d-flex gap-2 align-items-center'>
                {
                 user ? <>
                 <Link className='btn btn-primary' to={"/upload"}>Upload Blog</Link>
@@ -39,6 +39,9 @@ const Navbar = () => {
                 <Link className='btn btn-success' to={"/login"}>Login</Link>
                 </>
                }
+               <a href="https://github.com/ankitjhagithub21/blog-client" target='_blank' className='btn btn-dark'>
+                <FaGithub size={23}/>
+               </a>
             </div>
         </nav>
 

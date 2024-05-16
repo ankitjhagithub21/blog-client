@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom"
+import { useNavigate,Link } from "react-router-dom"
 import toast from 'react-hot-toast'
+
 const Register = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -114,6 +115,7 @@ const Register = () => {
                             </> : 'Register'}
                         </button>
                     </form>
+                    <p className='mt-3'>Already have an account ? <Link to={"/login"} className='underline text-primary'>Login Here</Link></p>
 
                 </div>
             </div>

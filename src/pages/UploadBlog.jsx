@@ -3,6 +3,7 @@ import JoditEditor from 'jodit-react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
+import { uploadImage } from '../helpers/uploadImage';
 
 const UploadBlog = () => {
     const [title, setTitle] = useState('');
@@ -19,6 +20,12 @@ const UploadBlog = () => {
         if(!user){
             return toast.error("You are not logged In.")
         }
+
+        const uploadedImage = await uploadImage(image)
+        if(!uploadedImage){
+          return toast.error("Error uploading image.");
+        }
+
         const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
@@ -28,7 +35,9 @@ const UploadBlog = () => {
             setLoading(true)
             const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/blogs/upload`, {
                 method: 'POST',
-               
+                headers:{
+                    "Content-Type":"application/json"
+                },
                 credentials: 'include',
                 body: formData,
             });
@@ -57,7 +66,7 @@ const UploadBlog = () => {
             <div className='row'>
                 <div className='col-md-8 mx-auto'>
                     <h2 className='mb-3 text-center'>Upload Blog</h2>
-                    <form onSubmit={handleSubmit} encType='multipart/form-data'>
+                    <form onSubmit={handleSubmit}>
                         <div className='mb-3'>
                             <label htmlFor='title' className='form-label'>
                                 Blog Title

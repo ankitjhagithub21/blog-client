@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import toast from 'react-hot-toast'
 const Login = () => {
 
@@ -47,7 +47,8 @@ const Login = () => {
 
     }
     return (
-        <div className='container my-5'>
+       <section>
+         <div className='container my-5'>
             <div className="row">
                 <div className="col-md-6 mx-auto">
                     <h2 className='mb-3'>Login to your account</h2>
@@ -91,11 +92,13 @@ const Login = () => {
                             </> : 'Login'
                            }
                         </button>
+                        <p className='mt-3'>Don't have an account ? <Link to={"/register"} className='underline text-primary'>Register Here</Link></p>
                     </form>
 
                 </div>
             </div>
         </div>
+       </section>
     )
 }
 

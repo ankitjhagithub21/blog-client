@@ -153,7 +153,7 @@ const BlogDetails = ({ getUserFromServer }) => {
 
                     <div dangerouslySetInnerHTML={{ __html: blog.content }}></div>
                     
-                    <div className='my-3 fs-5 d-flex justify-content-between align-items-center'>
+                    <div className='my-3 d-flex flex-wrap justify-content-between align-items-center'>
                         <h5>Date - {convertDate(blog.createdAt)}</h5>
                         <h5>Author : {blog.user == user?._id ? "You" : blog.author}</h5>
                     </div>
