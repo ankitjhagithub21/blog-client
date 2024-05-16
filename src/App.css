@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body{
+    font-family: "Inter", sans-serif;
+}
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+}
+
+.col-md-10 img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.comment{
+    cursor: pointer;
+
+}
+.comment:hover{
+    transform: scale(1.02);
+    
+}
+
+.form-control:hover,:focus{
+    box-shadow: none !important;
+}
