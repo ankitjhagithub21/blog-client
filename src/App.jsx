@@ -13,6 +13,7 @@ import UpdateBlog from './pages/UpdateBlog'
 import { useDispatch } from 'react-redux'
 import { setUser } from './app/slices/authSlice'
 import Footer from './components/Footer'
+import NotFound from './pages/NotFound'
 const App = () => {
   const dispatch = useDispatch()
   const getUserFromServer = async() =>{
@@ -43,6 +44,7 @@ const App = () => {
       <Route path="/blogs" element={<Blogs/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
+      <Route path="/*" element={<NotFound/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

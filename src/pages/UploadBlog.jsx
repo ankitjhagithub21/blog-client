@@ -17,29 +17,31 @@ const UploadBlog = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        
         if(!user){
             return toast.error("You are not logged In.")
         }
-
+        setLoading(true)
         const uploadedImage = await uploadImage(image)
         if(!uploadedImage){
           return toast.error("Error uploading image.");
         }
 
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('content', content);
-        formData.append('image', image);
+       
 
         try {
-            setLoading(true)
+            
             const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/blogs/upload`, {
                 method: 'POST',
                 headers:{
                     "Content-Type":"application/json"
                 },
                 credentials: 'include',
-                body: formData,
+                body: JSON.stringify({
+                    title,
+                    content,
+                    image:uploadedImage.url
+                })
             });
 
             const data = await res.json();

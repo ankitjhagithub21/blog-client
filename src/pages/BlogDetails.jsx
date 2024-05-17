@@ -149,7 +149,7 @@ const BlogDetails = ({ getUserFromServer }) => {
                     }
                     <h2 className='fs-5 mb-3'><Link to={"/"}>Home</Link> / {blog.title}</h2>
 
-                    <img src={`${import.meta.env.VITE_SERVER_URL}/${blog.image}`} alt="thumbnail" className='img-fluid' />
+                    <img src={blog.image} alt="thumbnail" className='img-fluid' />
 
                     <div dangerouslySetInnerHTML={{ __html: blog.content }}></div>
                     
